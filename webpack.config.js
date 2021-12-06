@@ -22,7 +22,8 @@ module.exports = (env, { mode }) => {
         buildTimestamp: new Date().getTime()
       }),
       "process.env": {
-        NODE_ENV: JSON.stringify(mode)
+        // NODE_ENV: JSON.stringify(mode)
+        NODE_ENV:JSON.stringify('development')
       }
     })
   ];

@@ -16,6 +16,11 @@ html {
   height: 100%;
 }
 
+.full_size {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 body {
   height: 100%;
   overflow: auto;
@@ -42,11 +47,34 @@ li::marker {
 
 // CSS Rule format:
 // module__element-subelement--variant
+.page {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.page_selected {
+  max-width: 100%;
+  max-height: 100%;
+  border-width: thin;
+  border-style: solid;
+  border-color: red;
+}
 
 .charticulator {
-  &__application {
+  &__pages {
     position: fixed;
     left: 0;
+    right: 90%;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    color: $theme-primary-foreground;
+  }
+
+  &__application {
+    position: fixed;
+    left: 10%;
     right: 0;
     top: 0;
     bottom: 0;

@@ -8,7 +8,7 @@ import * as ReactDOM from "react-dom";
 
 import { MainView } from "./main_view";
 import { AppStore, Migrator } from "./stores";
-
+import { PageView } from "./views";
 import {
   initialize,
   Dispatcher,
@@ -113,6 +113,14 @@ export class Application {
       property: Prototypes.Controls.Property
     ) => void;
   };
+
+  public getpageView(store: AppStore) {
+    return <PageView store={store} />;
+  }
+
+  public getAppStore() {
+    return this.appStore;
+  }
 
   public destroy() {
     ReactDOM.unmountComponentAtNode(document.getElementById(this.containerID));

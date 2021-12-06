@@ -318,7 +318,8 @@ export function renderGraphicalElementSVG(
       mouseEvents.onMouseMove = element.interactable.onMousemove;
     }
   }
-
+  // eslint-disable-next-line no-debugger
+  // debugger;
   switch (element.type) {
     case "rect": {
       const rect = element as Graphics.Rect;

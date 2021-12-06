@@ -13,35 +13,397 @@
 
   <body>
     <div id="container"></div>
+    <div id="page_view_arr" class="charticulator__pages">
+      <button id="add_view">add</button>
+      <button id="output_scrolly">scrolly</button>
+    </div>
 
     <script src="data/config.js"></script>
     <script src="scripts/app.bundle.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <script type="text/javascript" >
+      // eslint-disable-next-line max-lines-per-function
+      // eslint-disable-next-line max-lines-per-function
+      function generateH5Scrolly (domString,functionString){return `<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>scroll demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></sc`+`ript>
+<style id="compiled-css" type="text/css">
+    #scrolly {
+       position: relative;
+       display: -webkit-box;
+     display: -ms-flexbox;
+     display: flex;
+       background-color: #f3f3f3;
+       padding: 1rem;
+    }
+    #scrolly > * {
+       -webkit-box-flex: 1;
+     -ms-flex: 1;
+     flex: 1;
+    }
+    article {
+       position: relative;
+       padding: 0 1rem;
+       max-width: 20rem;
+    }
+    figure {
+       position: -webkit-sticky;
+       position: sticky;
+       width: 100%;
+       margin: 0;
+       -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+       transform: translate3d(0, 0, 0);
+       background-color: #d5b4ed;
+    }
+    figure p {
+       text-align: center;
+       padding: 1rem;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       -moz-transform: translate(-50%, -50%);
+       -webkit-transform: translate(-50%, -50%);
+       transform: translate(-50%, -50%);
+       font-size: 8rem;
+       font-weight: 900;
+       color: #000000;
+    }
+    .step {
+       margin: 0 auto 2rem auto;
+       background-color: #3b3b3b;
+       color: #fff;
+    }
+    .step:last-child {
+       margin-bottom: 0;
+    }
+    .step.is-active {
+       background-color: goldenrod;
+       color: #3b3b3b;
+    }
+    .step p {
+       text-align: center;
+       padding: 1rem;
+       font-size: 1.5rem;
+    }
 
+    .container {
+    }
+  
+</style>
+</head>
+<body>
+  <main>
+      <section id="scrolly">
+       <article>
+          <div class="step" data-step="1" data-scrollama-index="0" style="height: 1975px;">
+             <p>STEP 1</p>
+          </div>
+          <div class="step" data-step="2" data-scrollama-index="1" style="height: 1975px;">
+             <p>STEP 2</p>
+          </div>
+          <div class="step is-active" data-step="3" data-scrollama-index="2" style="height: 1975px;">
+             <p>STEP 3</p>
+          </div>
+          <div class="step" data-step="4" data-scrollama-index="3" style="height: 1975px;">
+             <p>STEP 4</p>
+          </div>
+       </article>
+       <figure style="height: 564.5px; top: 282.25px;">
+          <p>3</p>
+          <svg width="800" height="800" viewBox="-400 -400 800 800" class="container">
+            <g><circle id="C0"></circle><circle id="C1"></circle><circle id="C2"></circle><circle id="C3"></circle><circle id="C4"></circle><circle id="C5"></circle><circle id="C6"></circle><circle id="C7"></circle><circle id="C8"></circle><circle id="C9"></circle><circle id="C10"></circle><circle id="C11"></circle><circle id="C12"></circle><circle id="C13"></circle><circle id="C14"></circle><circle id="C15"></circle><circle id="C16"></circle><circle id="C17"></circle><circle id="C18"></circle><circle id="C19"></circle><circle id="C20"></circle><circle id="C21"></circle><circle id="C22"></circle><circle id="C23"></circle><circle id="C24"></circle><circle id="C25"></circle><circle id="C26"></circle><circle id="C27"></circle><circle id="C28"></circle><circle id="C29"></circle><circle id="C30"></circle><circle id="C31"></circle><circle id="C32"></circle><circle id="C33"></circle><circle id="C34"></circle><circle id="C35"></circle></g>
+          </svg>
+       </figure>
+    </section>
+<section id="outro"></section>
+</main>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></sc`+`ript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js" integrity="sha512-dmLpQXesGDP0ZM/s8zGKQU3Xlbix57QfwFNFh+BY5Ad/afObQ/lBo200mHWuHu8LOoI7tlK09yP3L/4DjdQ5Xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></sc`+`ript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/2.2.3/scrollama.min.js" integrity="sha512-VA88R5xDavOzWJuU2OsnYC0Y6SkKgP/wo9MqwoB1yW2xpybccfamAIvDlz0MzzFo3M1ooy1SvbW06MrT+RNW3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></sc`+`ript>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></sc`+`ript>
     <script type="text/javascript">
-      const responce = fetch(`${CHARTICULATOR_CONFIG.WorkerURL}`).then(
-        (responce) => {
-          if (!responce.ok) {
-            throw Error(
-              `Loading worker script from ${
-                CHARTICULATOR_CONFIG.WorkerURL
-              } failed`
-            );
-          }
-          const script = responce.text().then((script) => {
-            const blob = new Blob([script], { type: "application/javascript" });
+// using d3 for convenience
+var main = d3.select("main")
+var scrolly = main.select("#scrolly");
+var figure = scrolly.select("figure");
+var article = scrolly.select("article");
+var step = article.selectAll(".step");
+var width = 200;
+var height = 300;
+var margin = { top: 40, bottom: 40, left: 70, right: 40 };
 
-            const workerScript = URL.createObjectURL(blob);
-            var application = new Charticulator.Application();
-            application.initialize(
+
+${functionString}
+
+// initialize the scrollama
+var scroller = scrollama();
+      // generic window resize listener event
+function handleResize() {
+  // 1. update height of step elements
+  var stepH = Math.floor(window.innerHeight * 1.75);
+  step.style("height", stepH + "px");
+  var figureHeight = window.innerHeight / 2
+  var figureMarginTop = (window.innerHeight - figureHeight) / 2
+  figure
+    .style("height", figureHeight + "px")
+    .style("top", figureMarginTop + "px");
+  // 3. tell scrollama to update new element dimensions
+  scroller.resize();
+}
+// scrollama event handlers
+function handleStepEnter(response) {
+  // response = { element, direction, index }
+  // add color to current step only
+  step.classed("is-active", function (d, i) {
+    return i === response.index;
+  })
+  // update graphic based on step
+  figure.select("p").text(response.index + 1);
+  figure.call(activateFunctions[response.index])
+}
+function setupStickyfill() {
+  d3.selectAll(".sticky").each(function () {
+    Stickyfill.add(this);
+  });
+}
+function init() {
+  setupStickyfill();
+  // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+  handleResize();
+  // 2. setup the scroller passing options
+  //       this will also initialize trigger observations
+  // 3. bind scrollama event handlers (this can be chained like below)
+  scroller.setup({
+    step: "#scrolly article .step",
+    offset: 0.33,
+    debug: true,
+  })
+    .onStepEnter(handleStepEnter)
+  // setup resize event
+  window.addEventListener("resize", handleResize);
+}
+// kick things off
+init();
+  </sc`+`ript><div id="scrollama__debug-offset--mtg1637828596155" class="scrollama__debug-offset" style="position: fixed; left: 0px; width: 100%; height: 0px; border-top: 2px dashed black; z-index: 9999; top: 372.57px;"><p style="font-size: 12px; font-family: monospace; color: black; margin: 0px; padding: 6px;">".step" trigger: <span>0.33</span></p></div>
+
+
+</body></html>`}
+    </script>
+
+    <script type="text/javascript" async>
+    const storeArr=[];
+    async function init(){
+      const responce = await fetch(`${CHARTICULATOR_CONFIG.WorkerURL}`);
+      if (!responce.ok) {
+        throw Error(
+          `Loading worker script from ${
+            CHARTICULATOR_CONFIG.WorkerURL
+          } failed`
+        );
+      }
+      const script = await responce.text()
+      const blob = new Blob([script], { type: "application/javascript" });
+      // const workerScript = URL.createObjectURL(blob);
+      const container=d3.select("#container");
+      container.append('div')
+      .attr('id','sub0');
+      var application = new Charticulator.Application();
+      await application.initialize(
               CHARTICULATOR_CONFIG,
-              "container",
+              "sub0",
               {
-                workerScriptContent: workerScript
+                workerScriptContent: URL.createObjectURL(blob)
               }
-            );
-          });
+            )
+      storeArr.push(application.getAppStore());
+      container.append('div')
+      .attr('id','sub1')
+      .style('display','none');
+      var application = new Charticulator.Application();
+      await application.initialize(
+        CHARTICULATOR_CONFIG,
+        "sub1",
+        {
+          workerScriptContent: URL.createObjectURL(blob)
         }
-      );
+      )
+
+      storeArr.push(application.getAppStore());
+      d3.select('#add_view')
+      .on('click',()=>{
+        
+        const index=storeArr.length;
+        const container=d3.select("#container");
+        container.append('div')
+          .attr('id',`sub${index}`);
+        var application = new Charticulator.Application();
+        application.initialize(
+          CHARTICULATOR_CONFIG,
+          `sub${index}`,
+          {
+            workerScriptContent: URL.createObjectURL(blob)
+          }
+        ).then(()=>{
+          const store=application.getAppStore();
+          storeArr.push(store);
+          const dom=d3.select('#page_view_arr')
+            .append('div')
+            .attr('id',`page${index}`)
+            .datum(index)
+            .attr('class','page')
+            .on("click",(_,index)=>{
+              storeArr.forEach((_,i)=>{
+                d3.select(`#page${i}`)
+                .attr('class','page');
+                d3.select(`#sub${i}`)
+                .style('display','none');
+              })
+              d3.select(`#page${index}`)
+              .attr('class','page_selected');
+              d3.select(`#sub${index}`)
+              .style('display','inline');
+            });
+          ReactDOM.render(application.getpageView(store),document.querySelector(`#page${index}`));
+        })
+      })
+      storeArr.forEach((store,index)=>{
+        const dom=d3.select('#page_view_arr')
+          .append('div')
+          .attr('id',`page${index}`)
+          .datum(index)
+          .attr('class','page');
+        ReactDOM.render(application.getpageView(store),document.querySelector(`#page${index}`));
+      })
+      d3.selectAll('.page')
+        .on("click",(_,index)=>{
+          storeArr.forEach((_,i)=>{
+            d3.select(`#page${i}`)
+            .attr('class','page');
+            d3.select(`#sub${i}`)
+            .style('display','none');
+          })
+          d3.select(`#page${index}`)
+          .attr('class','page_selected');
+          d3.select(`#sub${index}`)
+          .style('display','inline');
+        });
+      d3.select('#page0')
+      .attr('class','page_selected');
+    }
+
+    init();
+
+
+    //-------------------------------------
+    function dom2string(dom){
+      const objE = document.createElement("div");
+      objE.appendChild(dom.cloneNode(true));
+      const string=objE.innerHTML;
+      return string;
+    }
+
+    function string2dom(string){
+      const objE = document.createElement("div");
+      objE.innerHTML=string;
+      return objE;
+    }
+
+    async function exportScrolly(){
+      d3.select('#output_scrolly')
+        .on('click',async ()=>{
+          const svgArr=[];
+          const dataRowIndicesArr=[];
+          for (let i=0;i<storeArr.length;i++){
+            svgArr.push(await storeArr[i].renderLocalSVG());
+            dataRowIndicesArr.push(storeArr[i].chartState.elements[0].dataRowIndices);
+          }
+          // storeArr.forEach(async (store)=>{
+          //   svgArr.push(await store.renderLocalSVG());
+          //   dataRowIndicesArr.push(store.chartState.elements[0].dataRowIndices);
+          // })
+          const dataLength=storeArr[0].dataset.tables[0].rows.length;
+          const viewLength=storeArr.length;
+          const transitionArr=[];
+          for (let i=0;i<viewLength;i++){
+            transitionArr.push(createTransition(svgArr[i],dataRowIndicesArr[i],dataLength,i));
+          }
+          const initDom=document.createElement("g");
+          for (let i=0;i<dataLength;i++) {
+            const child=document.createElement("circle");
+            child.setAttribute('id',`C${i}`);
+            initDom.appendChild(child);
+          }
+          let generateActivateFunction="const activateFunctions=[];\n";
+          transitionArr.forEach((transition,index)=>{
+            generateActivateFunction+=`activateFunctions[${index}]=showView${index};\n`
+          })
+          const H5=generateH5Scrolly(dom2string(initDom),transitionArr.join("\n")+generateActivateFunction);
+
+          download("H5.html",H5);
+        
+        })
+    }
+
+    function download(filename,text){
+      const element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
+
+    function createTransition (string,data,length,viewId){
+      const doms=string2dom(string).querySelectorAll('circle');
+      let ans=`var showView${viewId} = function(){`
+      for (let id=0;id<length;id+=1){
+        domIndex=findDataById(id,data);
+        let styleObj={autoAlpha:1}
+        if (domIndex===null) styleObj['autoAlpha']=0;
+        else {
+          const dom=doms[domIndex];
+          styleObj=Object.assign(styleObj,dom2Style(dom));
+        }
+        ans+=createTransition4element(id,1,styleObj);
+      }
+      return ans+'}\n';
+    }
+
+    function createTransition4element(id,duration,style){
+      return `TweenLite.to("#C${id}",${duration},${JSON.stringify(style)});\n`;
+    }
+
+    function dom2Style(dom){
+      const ans={};
+      const props=['cx','cy','r'];
+      const styles=['fill'];
+      props.forEach((prop)=>{
+        ans[prop]=dom.getAttribute(prop);
+      })
+      styles.forEach((style)=>{
+        ans[style]=dom.style[style]
+      })
+      return ans;
+    }
+
+    function findDataById(id,data){
+      for (let i=0;i<data.length;i++){
+        if (data[i].indexOf(id)!==-1)
+          return i;
+      }
+      return null;
+    }
+  
+    exportScrolly()
     </script>
     <script type="text/javascript">
       // Include Lato and Inconsolata from Google fonts.

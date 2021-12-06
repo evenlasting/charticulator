@@ -299,6 +299,9 @@ export class MainView extends React.Component<MainViewProps, MainViewState> {
                 undoRedoLocation: this.viewConfiguration.UndoRedoLocation,
               })}
             <section className="charticulator__panel-container">
+              {/* TODO */}
+              {/* <PageView store={this.props.store}></PageView> */}
+
               {this.viewConfiguration.ColumnsPosition ==
                 PositionsLeftRight.Left && datasetPanel()}
               <div className="charticulator__panel charticulator__panel-editor">

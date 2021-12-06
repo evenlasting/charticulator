@@ -61,7 +61,8 @@ export class FileViewImport extends ContextedComponent<
         columnMappings: newMapping,
       });
     };
-
+    // eslint-disable-next-line no-debugger
+    // debugger;
     tables.forEach((table, tableIndex) => {
       const filteredByTableColumns = this.props.datasetTables[tableIndex]
         ?.columns;
