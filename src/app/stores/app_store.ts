@@ -143,7 +143,6 @@ export class AppStore extends BaseStore {
   public static EVENT_SAVECHART = "savechart";
   /** Fires when user clicks Edit nested chart for embedded editor */
   public static EVENT_OPEN_NESTED_EDITOR = "openeditor";
-
   /** The WebWorker for solving constraints */
   public readonly worker: CharticulatorWorkerInterface;
 
@@ -193,12 +192,13 @@ export class AppStore extends BaseStore {
   /** The id of the currently editing chart */
   public currentChartID: string;
 
+  public pageText: string;
+
   public actionHandlers = new ActionHandlerRegistry<AppStore, Actions.Action>();
 
   private propertyExportName = new Map<string, string>();
 
   public messageState: Map<MessageType | string, string>;
-
   constructor(worker: CharticulatorWorkerInterface, dataset: Dataset.Dataset) {
     super(null);
 
@@ -427,6 +427,10 @@ export class AppStore extends BaseStore {
     this.emit(AppStore.EVENT_GRAPHICS);
     this.emit(AppStore.EVENT_SAVECHART);
     return id;
+  }
+
+  public setPageText(pageText:string){
+    this.pageText=pageText;
   }
 
   public setupNestedEditor(

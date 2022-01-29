@@ -49,6 +49,7 @@ import { SnappingGuidesVisualTypes } from "../../../core/prototypes";
 import { classNames } from "../../utils";
 import { FluentUIWidgetManager } from "../panels/widgets/fluentui_manager";
 import { Callout, DirectionalHint } from "@fluentui/react";
+import TextEditor from "./text_editor";
 
 export interface ChartEditorViewProps {
   store: AppStore;
@@ -1492,6 +1493,7 @@ export class ChartEditorView
             />
           </div>
         </div>
+        <TextEditor store={this.props.store}></TextEditor>
         {this.state.isSolving ? (
           <div className="solving-hint">
             <div className="el-box">

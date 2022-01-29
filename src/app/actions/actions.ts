@@ -591,6 +591,21 @@ export class SetScaleAttribute extends Action {
   }
 }
 
+export class SetPageText extends Action{
+  constructor(
+    public pageText: string,
+  ){
+    super();
+  }
+
+  public digest(){
+    return {
+      name: "SetPageText",
+      pageText: this.pageText,
+    };
+  }
+}
+
 export class ToggleLegendForScale extends Action {
   constructor(
     public scale: string,

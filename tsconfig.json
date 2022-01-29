@@ -8,8 +8,10 @@
     "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
-    "noImplicitAny": true,
+    // "noImplicitAny": true,
     "sourceMap": true,
-    "lib": [ "es2017", "dom", "esnext.array", ]
+    "lib": [ "es2017", "dom", "esnext.array", ],
+    // "allowSyntheticDefaultImports": true,
+    // "esModuleInterop": true
   }
 }

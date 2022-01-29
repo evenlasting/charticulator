@@ -19,6 +19,7 @@ import {
   ChartEditorView,
   DatasetView,
   MarkEditorView,
+  NewEditor,
 } from "./views";
 import { MenuBar, MenuBarHandlers, MenubarTabButton } from "./views/menubar";
 import { ObjectListEditor } from "./views/panels/object_list_editor";
@@ -276,6 +277,7 @@ export class MainView extends React.Component<MainViewProps, MainViewState> {
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => e.preventDefault()}
       >
+        <NewEditor/>
         <MainReactContext.Provider
           value={{
             store: this.props.store,
